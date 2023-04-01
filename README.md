@@ -1,6 +1,6 @@
 # ProyectoFinal-Gustavo-Gilardoni
 
-Video Explicativo: 
+Video Explicativo: https://www.youtube.com/watch?v=NdOALBRNPIo
 
 Cuenta Admin:
 User: admin

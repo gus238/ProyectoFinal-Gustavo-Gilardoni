@@ -1,0 +1,22 @@
+{% extends 'padre.html' %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+    
+    {% for j in juego %}
+
+        <li>{{j}}</li>
+
+        <button>
+            <a href="{% url 'EliminarJuego' j.nombre %}"> Eliminar </a>
+            <a href="{% url 'EditarJuego' j.nombre %}"> Editar </a>
+        </button>
+
+    {% endfor %}
+
+    <br>
+
+    <a href="{% url 'Juegos' %}"> Añadir otro juego</a>
+
+{% endblock %}

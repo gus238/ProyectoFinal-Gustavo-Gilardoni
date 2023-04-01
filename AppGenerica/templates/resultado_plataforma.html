@@ -1,0 +1,25 @@
+{% extends 'padre.html' %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+
+
+    <p>Estamos buscando la plataforma: {{nombre}}</p>
+
+    {% if ceo %}
+
+    <ul>
+        {% for plataforma in ceo %}
+
+            <li> {{plataforma.nombre}} </li>
+            <li> {{plataforma.ceo}} </li>
+
+
+        {% endfor %}
+
+    </ul>
+
+    {% endif %}
+
+{% endblock %}

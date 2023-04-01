@@ -1,0 +1,24 @@
+{% extends 'padre.html' %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+
+
+    <p>Estamos buscando el juego: {{nombre}}</p>
+
+    {% if empresa %}
+
+    <ul>
+        {% for juego in empresa %}
+            <li> {{juego.nombre}} </li>
+            <li> {{juego.empresa}} </li>
+            <li> {{juego.categoria}} </li>
+            <li> {{juego.jugadores}} </li>
+        {% endfor %}
+
+    </ul>
+
+    {% endif %}
+
+{% endblock %}

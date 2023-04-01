@@ -1,0 +1,24 @@
+{% extends 'padre.html' %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+
+
+    <p>Estamos buscando al influencer: {{nombre}}</p>
+
+    {% if nacimiento %}
+
+    <ul>
+        {% for influencer in nacimiento %}
+
+            <li> {{influencer.nombre}} </li>
+            <li> {{influencer.nacimiento}} </li>
+
+        {% endfor %}
+
+    </ul>
+
+    {% endif %}
+
+{% endblock %}

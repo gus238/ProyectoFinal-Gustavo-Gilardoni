@@ -26,3 +26,11 @@ Las funciones principales de la navbar son:
 -Cerrar Sesion en caso de estar loggeado
 -Agregar un avatar a tu perfil
 -Editar el perfil que esta loggeado actualmente
+
+SEGUNDA VERSION:
+
+-Se añadio segunda app "La Segunda", se accede escribiendo "http://127.0.0.1:8000/LaSegunda/" y tiene un nuevo objeto, Amigo
+
+-Las clases Influencer y Amigos tienen un sistema totalmente funcional y con CRUD incluido para añadir y ver imagenes
+
+Para editar y añadir las imagenes solo hace falta clickear en la navbar donde dice "Influencers" y "Amigos", el resto es el mismo proceso como se vio en clase

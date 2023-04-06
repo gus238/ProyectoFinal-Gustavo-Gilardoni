@@ -1,12 +1,22 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
+from .models import *
 
-class form_influencer_formulario(forms.Form):
-
-    nombre = forms.CharField(max_length=40)
-    nacimiento = forms.IntegerField()
+class form_influencer_formulario(forms.ModelForm):
+    class Meta:
+        model = Influencer
+        fields = ['nombre', 'nacimiento', 'imagen']
+        widgets = {
+            'imagen': forms.ClearableFileInput(attrs={'class': 'form-control-file'})
+        }
     
+class form_influencer_imagen(forms.ModelForm):
+    class Meta:
+        model = Influencer
+        fields = ['nombre', 'nacimiento', 'imagen']
+
+    imagen = forms.ImageField()
 
 
 class form_juego_formulario(forms.Form):

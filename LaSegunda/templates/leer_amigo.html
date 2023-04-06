@@ -1,0 +1,26 @@
+{% extends 'padre.html' %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+    
+    {% for i in amigo %}
+
+        <div>
+            <li>{{i}}</li>
+            {% if i.imagen %}
+                <img height="50px" src="{{ i.imagen.url }}" alt="{{ i.nombre }}">
+            {% endif %}
+        </div>
+        <button>
+            <a href="{% url 'EliminarAmigo' i.nombre %}"> Eliminar </a>
+            <a href="{% url 'EditarAmigo' i.nombre %}"> Editar </a>
+        </button>
+
+    {% endfor %}
+
+    <br>
+
+    <a href="{% url 'Amigo' %}"> Añadir otro Amigo</a>
+
+{% endblock %}

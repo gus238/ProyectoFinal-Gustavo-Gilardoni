@@ -16,6 +16,7 @@ class Influencer(models.Model):
 
     nombre = models.CharField(max_length=40)
     nacimiento = models.IntegerField()
+    imagen = models.ImageField(upload_to='app_generica_objetos', null=True, blank=True)
 
     def __str__(self):
         return f"Nombre: {self.nombre} - Nacimiento: {self.nacimiento}"

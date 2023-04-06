@@ -1,10 +1,12 @@
 from django.urls import path
 from AppGenerica import views
 from django.contrib.auth.views import LogoutView
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path(r'', views.inicio, name='Inicio'),
-    path(r'crear_juego/', views.juego_formulario, name='Juegos'),
+    path(r'crear_juego/', views.cargar_imagen_objeto, name='Juegos'),
     path(r'buscar_juego/', views.buscar_juego, name='BuscarJuego'),
     path(r'resultado_juego/', views.resultado_juego),
     path(r'leer_juego/', views.leer_juego, name='LeerJuego'),
@@ -30,3 +32,10 @@ urlpatterns = [
     path(r'about/', views.about_me, name='SobreMi'),
     path(r'nada/', views.nada, name='Nada')
 ]
+
+
+
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL,
+                          document_root=settings.MEDIA_ROOT)

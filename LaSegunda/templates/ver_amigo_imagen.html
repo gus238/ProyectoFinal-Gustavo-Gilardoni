@@ -1,0 +1,22 @@
+{% extends 'padre.html' %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+    
+    {% if mi_formulario.errors %}
+
+    <p style="color: red;"> Algo salio mal :p</p>
+
+    {% endif %}
+
+
+    <h1>{{ amigo.nombre }}</h1>
+    <p>{{ amigo.nacimiento }}</p>
+    
+        {% if amigo.imagen %}
+        <img height="30px" src="{{ url amigo.imagen }}" />
+        {% endif %}
+    {% endif %}
+
+{% endblock %}

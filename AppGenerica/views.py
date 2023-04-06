@@ -309,7 +309,7 @@ def eliminar_influencer(request, influencer_nombre):
 
     return render(request, r'leer_influencer.html', contexto)
 
-@login_required
+'''@login_required
 def editar_influencer(request, influencer_nombre):
 
     influencer = Influencer.objects.get(nombre=influencer_nombre)
@@ -335,7 +335,37 @@ def editar_influencer(request, influencer_nombre):
     else:
             mi_formulario = form_influencer_formulario(initial={'nombre': influencer.nombre, 'nacimiento': influencer.nacimiento})
             
-    return render(request, r'editar_influencer.html', {"mi_formulario":mi_formulario, "influencer_nombre":influencer_nombre})
+    return render(request, r'editar_influencer.html', {"mi_formulario":mi_formulario, "influencer_nombre":influencer_nombre})'''
+
+def editar_influencer(request, influencer_nombre):
+    influencer = Influencer.objects.get(nombre=influencer_nombre)
+    if request.method == 'POST':
+        form = form_influencer_formulario(request.POST, request.FILES, instance=influencer)
+        print(form)
+        if form.is_valid():
+            form.save()
+            return render(request, r'inicio.html')
+    else:
+        form = form_influencer_formulario(instance=influencer)
+    context = {'form': form}
+    return render(request, r'editar_influencer.html', context)
+
+
+
+
+# Imagen objeto
+
+def cargar_imagen_objeto(request):
+    if request.method == 'POST':
+        form = form_influencer_imagen(request.POST, request.FILES)
+        if form.is_valid():
+            nuevo_objeto = form.save(commit=False)
+            nuevo_objeto.save()
+            return render(request, r'inicio.html')
+    else:
+        form = form_influencer_imagen()
+
+    return render(request, r'subir_influencer_imagen.html', {'form':form})
 
 
 

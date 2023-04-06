@@ -1,0 +1,28 @@
+{% extends 'padre.html' %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+    
+    {% if mi_formulario.errors %}
+
+    <p style="color: red;"> Algo salio mal :p</p>
+
+    {% endif %}
+
+
+    <form action="" method="POST"> {% csrf_token %}
+
+        <table>
+
+            {{ mi_formulario.as_table }}
+
+        </table>
+
+
+        <input type="submit", value="Enviar">
+
+
+    </form>
+
+{% endblock %}

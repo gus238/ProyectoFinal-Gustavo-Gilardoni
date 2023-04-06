@@ -1,0 +1,20 @@
+{% extends 'padre.html' %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+    
+    {% if mi_formulario.errors %}
+
+    <p style="color: red;"> Algo salio mal :p</p>
+
+    {% endif %}
+
+
+    <form method = "POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Enviar</button>
+    </form>
+
+{% endblock %}
